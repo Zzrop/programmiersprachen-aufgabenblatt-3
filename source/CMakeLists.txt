@@ -5,6 +5,7 @@ add_executable(aufgabe5 aufgabe5.cpp)
 add_executable(aufgabe10 aufgabe10.cpp)
 
 add_executable(aufgabe7 aufgabe7.cpp circle.cpp)
+add_executable(aufgabe9 aufgabe9.cpp circle.cpp)
 
 
 target_link_libraries(tests framework ${LIBRARIES})
