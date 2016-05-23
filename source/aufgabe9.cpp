@@ -8,6 +8,7 @@
 #include <list>
 #include <iostream>
 #include <iterator>
+#include "circle.hpp"
 
 bool operator<(Circle c1,Circle c2){
   return (c1.r()<c2.r());
@@ -19,13 +20,6 @@ bool operator==(Circle c1,Circle c2){
   return (c1.r()==c2.r());
 }
 
-template<class T>
-void swaps(T& a,T& b) {
-  T temp;
-  temp = a;
-  a = b;
-  b = temp;
-}
 
 TEST_CASE ("describe_sorted","[aufgabe8]")
 {
@@ -34,23 +28,10 @@ for ( std::vector <Circle>::iterator i =v0.begin();i != v0.end();++i )
   {
     *i = Circle{(float)std::rand()};
   }
-
-  
-std::sort (v0.begin(), v0.end());
+std::sort (v0.begin(), v0.end(), [](Circle const& a,Circle const& b){return a.r() < b.r();});
 REQUIRE(std::is_sorted(v0.begin(), v0.end()));
 }
 
-TEST_CASE ("describe_swap","[aufgabe8]")
-{
-  std::vector<Circle> v1(2);
-for ( std::vector <Circle>::iterator i =v1.begin();i != v1.end();++i )
-  {
-    *i = Circle{(float)std::rand()};
-  }
-std::sort (v1.begin(), v1.end());
-swaps (v1[0],v1[1]);
-REQUIRE(std::is_sorted(v1.rbegin(), v1.rend()));
-}
 
 int main (int argc, char * argv[])
 {

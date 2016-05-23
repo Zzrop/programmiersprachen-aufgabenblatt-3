@@ -15,7 +15,7 @@ public:
 	Circle(float x,float y, float r,Color const& c);
 
 	Circle(float r);	
-	void draw (Window const&);
+//	void draw (Window const&);
 	float x()const;
 	float y()const;
 	float r()const;
